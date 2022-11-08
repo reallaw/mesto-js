@@ -13,8 +13,8 @@
 
 ## Планы по доработке:
 
-ПР6
+Всяческая валидация
 
-## Найти проект можно [тут](https://reallaw.github.io/mesto-project-js/)
+## Найти проект можно [тут](https://reallaw.github.io/mesto-js/)
 
-V. 1.2
+V. 1.3
