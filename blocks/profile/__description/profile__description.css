@@ -1,0 +1,25 @@
+.profile__description {
+    color: #fff;
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 294px;
+}
+
+@media screen and (max-width: 690px) {
+    .profile__description {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .profile__description {
+        font-size: 14px;
+        line-height: 17px;
+        max-width: calc(282px - (10px + 18px + 28px)); /* profile__add-button - (column-gap + profile__edit-button + profile__info padding-left) */
+    }
+}

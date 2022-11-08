@@ -1,0 +1,16 @@
+.photo-grid {
+    margin: 50px auto 0;
+    width: fit-content;
+}
+
+@media screen and (max-width: 680px) {
+    .photo-grid {
+        margin: 44px auto 0;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .photo-grid {
+        margin: 36px auto 0;
+    }
+}

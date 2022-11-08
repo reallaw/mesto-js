@@ -1,0 +1,26 @@
+.form__input {
+    margin: 46px 0 0;
+    padding: 0 0 12px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0, .2);
+}
+
+.form__input:focus {
+    outline: none;
+}
+
+.form__input:nth-of-type(2n) {
+    margin: 28px 0 0;
+}
+
+@media screen and (max-width: 470px) {
+    .form__input:nth-of-type(1) {
+        margin: 72px 0 0;
+    }
+}
