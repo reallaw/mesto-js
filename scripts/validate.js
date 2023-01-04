@@ -30,6 +30,7 @@ function showInputError(formElement, inputElement, errorMessage) {
   errorElement.textContent = errorMessage;
   errorElement.classList.add('form__input-error_active');
   submitBtn.classList.add('form__submit-button_disabled');
+  submitBtn.setAttribute('disabled', '');
 };
 
 function hideInputError(formElement, inputElement) {
@@ -39,6 +40,7 @@ function hideInputError(formElement, inputElement) {
   errorElement.classList.remove('form__input-error_active');
   errorElement.textContent = '';
   submitBtn.classList.remove('form__submit-button_disabled');
+  submitBtn.removeAttribute('disabled');
 }; 
 
 enableValidation();

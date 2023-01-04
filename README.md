@@ -17,4 +17,4 @@
 
 ## Найти проект можно [тут](https://reallaw.github.io/mesto-js/)
 
-V. 1.4
+V. 1.405
