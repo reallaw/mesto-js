@@ -11,7 +11,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, .5);
-    transition: visibility .25s, opacity .25s linear;
+    transition: visibility .175s, opacity .25s linear;
 }
 
 #popup-img {

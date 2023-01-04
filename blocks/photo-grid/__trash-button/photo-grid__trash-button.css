@@ -5,7 +5,7 @@
     background-image: url(../../../images/trash-btn.svg);
     height: 19px;
     width: 18px;
-    transition: opacity .175s linear;
+    transition: opacity .225s linear;
     background-color: transparent;
     border: 0;
     cursor: pointer;

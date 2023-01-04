@@ -36,9 +36,17 @@
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
             <button class="popup__close-button" type="button"></button>
-            <form class="form form-profile" name="profile-edit">
-                <input type="text" name="form__edit-profile-name" placeholder="Имя профиля" value="Жак-Ив Кусто" class="form__input form__input_type_profile-name" required>
-                <input type="text" name="form__edit-profile-description" placeholder="Описание профиля" value="Исследователь океана" class="form__input form__input_type_profile-description" required>
+            <form class="form form-profile" name="profile-edit" novalidate>
+                <ul class="form__list">
+                    <li class="form__field">
+                        <input id="form__input_type_profile-name" type="text" name="form__edit-profile-name" placeholder="Имя профиля" value="Жак-Ив Кусто" class="form__input" minlength="2" maxlength="40" required>
+                        <span class="form__input-error" id="form__input_type_profile-name-error"></span>
+                    </li>
+                    <li class="form__field">
+                        <input id="form__input_type_profile-description" type="text" name="form__edit-profile-description" placeholder="Описание профиля" value="Исследователь океана" class="form__input" minlength="2" maxlength="200" required>
+                        <span class="form__input-error form__input-error_active" id="form__input_type_profile-description-error"></span>
+                    </li>
+                </ul>
                 <button class="form__submit-button" type="submit">Сохранить</button>
             </form>
         </div>
@@ -47,10 +55,18 @@
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
             <button class="popup__close-button" type="button"></button>
-            <form class="form form-card" name="card-edit">
-                <input type="text" name="form__card-title" placeholder="Название" value="" class="form__input form__input_type_card-title" required>
-                <input type="text" name="form__card-img" placeholder="Ссылка на картинку" value="" class="form__input form__input_type_card-img-link" required>
-                <button class="form__submit-button" type="submit">Сохранить</button>
+            <form class="form form-card" name="card-edit" novalidate>
+                <ul class="form__list">
+                    <li class="form__field">
+                        <input id="form__input_type_card-title" type="text" name="form__card-title" placeholder="Название" value="" class="form__input" minlength="2" maxlength="30" required>
+                        <span class="form__input-error" id="form__input_type_card-title-error"></span>
+                    </li>
+                    <li class="form__field">
+                        <input id="form__input_type_card-img-link" type="url" name="form__card-img" placeholder="Ссылка на картинку" value="" class="form__input" required>
+                        <span class="form__input-error" id="form__input_type_card-img-link-error"></span>
+                    </li>
+                    <button class="form__submit-button" type="submit">Создать</button>
+                </ul>
             </form>
         </div>
     </div>
@@ -73,5 +89,6 @@
     </template>
     <script src="./scripts/initialCards.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
     background-image: url(../../../images/like-button.svg);
     height: 19px;
     width: 22px;
-    transition: opacity .5s linear, background-image .25s ease-out;
+    transition: opacity .175s linear, background-image .175s ease-out;
     background-color: transparent;
     border: 0;
     cursor: pointer;
