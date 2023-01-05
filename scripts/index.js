@@ -9,15 +9,25 @@ const formProfile = document.querySelector('.form-profile');
 const formCard = document.querySelector('.form-card');
 const popupCloseBtns = document.querySelectorAll('.popup__close-button');
 const popupProfile = document.querySelector('#popup-profile');
-const popupProfileName = document.querySelector('#form__input_type_profile-name');
-const popupProfileDescription = document.querySelector('#form__input_type_profile-description');
+const popupProfileName = document.querySelector('#form__edit-profile-name');
+const popupProfileDescription = document.querySelector('#form__edit-profile-description');
 const popupCard = document.querySelector('#popup-card');
-const popupCardTitle = document.querySelector('#form__input_type_card-title');
-const popupCardImg = document.querySelector('#form__input_type_card-img-link');
+const popupCardTitle = document.querySelector('#form__card-title');
+const popupCardImg = document.querySelector('#form__card-img');
 const popupShowPhoto = document.querySelector('#popup-img');
 const popupImg = document.querySelector('.popup__image');
 const popupDescription = document.querySelector('.popup__description');
 const cardTemplate = document.querySelector('#card-template');
+
+const configValidation = {
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.form__submit-button',
+    inactiveButtonClass: 'form__submit-button_disabled',
+    inputErrorClass: 'form__input_invalid',
+    errorClass: 'form__input-error_active'
+};
+  
 
 initialCards.forEach(element => {
     photoGridList.prepend(createCard(element.name, element.link));
@@ -118,11 +128,14 @@ profileAddBtn.addEventListener('click', function(evt){
 });
 formProfile.addEventListener('submit', submitFormProfile);
 formCard.addEventListener('submit', function(evt){
+    const inputsList = Array.from(formCard.querySelectorAll(configValidation.inputSelector));
+
     evt.preventDefault();
-
     photoGridList.prepend(createCard(popupCardTitle.value, popupCardImg.value));
-
     closePopup(popupCard);
-
     formCard.reset();
+
+    toggleBtnState(configValidation, formCard, inputsList);
 });
+
+enableValidation(configValidation);
