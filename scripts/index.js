@@ -8,6 +8,7 @@ const configValidation = {
 };
 
 const page = document.querySelector('.page');
+const forms = page.querySelector('.form');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 const profileEditBtn = document.querySelector('.profile__edit-button');
@@ -28,12 +29,39 @@ const popupShowPhoto = document.querySelector('#popup-img');
 const popupImg = document.querySelector('.popup__image');
 const popupDescription = document.querySelector('.popup__description');
 
-import enableValidation from './formValidator.js';
-import CreateCard from './card.js';
+import formValidator from './formValidator.js';
+import card from './card.js';
+
+const formValidators = {}
+
+// Включение валидации
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector))
+  formList.forEach((formElement) => {
+    const validator = new formValidator(config, formElement)
+// получаем данные из атрибута `name` у формы
+    const formName = formElement.getAttribute('name')
+
+    console.log(formName)
+
+   // вот тут в объект записываем под именем формы
+    formValidators[formName] = validator;
+   validator.enableValidation();
+  });
+};
+
+enableValidation(configValidation);
+ 
+
+function createNewCard(name, link) {
+    const cardElement = new card(name, link, '#card-template').renderCard();
+    return cardElement
+}
+  
 
 initialCards.forEach(element => {
-    const Card = new CreateCard(element.name, element.link, '#card-template').renderCard();
-    photoGridList.prepend(Card);
+    const card = createNewCard(element.name, element.link);
+    photoGridList.prepend(card);
 });
 
 function closePopupEsc(evt) {
@@ -82,7 +110,7 @@ profileEditBtn.addEventListener('click', function(evt){
     popupProfileName.value = profileName.textContent;
     popupProfileDescription.value = profileDescription.textContent;
 
-    new enableValidation(configValidation).toggleBtnState(formCard, inputsListCard);
+    formValidators['profile-edit'].resetValidation()
 });
 profileAddBtn.addEventListener('click', function(evt){
     evt.preventDefault();
@@ -92,15 +120,12 @@ profileAddBtn.addEventListener('click', function(evt){
 formProfile.addEventListener('submit', submitFormProfile);
 formCard.addEventListener('submit', function(evt){
     evt.preventDefault();
-
-    const Card = new CreateCard(popupCardTitle.value, popupCardImg.value, '#card-template').renderCard();
-    photoGridList.prepend(Card);
+    const card = createNewCard(popupCardTitle.value, popupCardImg.value);
+    photoGridList.prepend(card);
     closePopup(popupCard);
     formCard.reset();
 
-    new enableValidation(configValidation).toggleBtnState(formCard, inputsListCard);
+    formValidators['card-edit'].resetValidation()
 });
-
-new enableValidation(configValidation).enableValidation();
 
 export { popupImg, popupDescription, openPopup, popupShowPhoto, configValidation };

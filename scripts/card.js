@@ -1,6 +1,6 @@
 import { popupImg, popupDescription, openPopup, popupShowPhoto } from "./index.js";
 
-export default class CreateCard {
+export default class Card {
     constructor(title, image, cardTemplate) {
         this._title = title;
         this._image = image;
@@ -13,29 +13,27 @@ export default class CreateCard {
         .content
         .querySelector('.photo-grid__item')
         .cloneNode(true);
+        this._likeBtn = this._card
+        .querySelector('.photo-grid__like-button');
+        this._victimCard = this
+        ._card
+        .closest('.photo-grid__item');
+        this._cardPhoto = this
+        ._card.querySelector('.photo-grid__img');
     }
 
     _handleLike() {
-        const likeBtn = this._card
-        .querySelector('.photo-grid__like-button');
-
-        likeBtn.classList.toggle('photo-grid__like-button_active');
+        this._likeBtn.classList.toggle('photo-grid__like-button_active');
     };
     
     _handleDelete() {
-        const victimCard = this
-        ._card
-        .closest('.photo-grid__item');
-        victimCard.remove();
+        this._victimCard.remove();
     };
 
     _showPopupImage(evt) {
-        const cardPhoto = this
-        ._card.querySelector('.photo-grid__img');
-
-        popupImg.src = cardPhoto.src;
-        popupImg.alt = cardPhoto.alt;
-        popupDescription.textContent = cardPhoto.alt;
+        popupImg.src = this._cardPhoto.src;
+        popupImg.alt = this._cardPhoto.alt;
+        popupDescription.textContent = this._cardPhoto.alt;
         openPopup(popupShowPhoto);
     };
 
