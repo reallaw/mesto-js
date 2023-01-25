@@ -9,13 +9,13 @@
     width: fit-content;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 848px) {
     .photo-grid__list {
         grid-template-columns: repeat(2, auto);
     }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 568px) {
     .photo-grid__list {
         grid-template-columns: repeat(1, auto);
     }

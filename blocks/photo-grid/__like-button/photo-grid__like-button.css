@@ -3,7 +3,7 @@
     background-image: url(../../../images/like-button.svg);
     height: 19px;
     width: 22px;
-    transition: opacity .175s linear, background-image .175s ease-out;
+    transition: opacity .175s linear, transform .175s, background-image .175s ease-out;
     background-color: transparent;
     border: 0;
     cursor: pointer;
@@ -11,4 +11,5 @@
 
 .photo-grid__like-button:hover {
     opacity: 0.5;
+    transform: scale(1.025);
 }

@@ -2,11 +2,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: auto;
     height: 100%;
     background: #FFFFFF;
     border-radius: 10px;
-    min-width: 200px;
+    min-width: 264px;
     max-width: 300px;
     list-style-type: none;
     transition: opacity .25s linear;
